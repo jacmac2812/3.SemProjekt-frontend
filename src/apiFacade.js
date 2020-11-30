@@ -68,6 +68,14 @@ function apiFacade() {
       handleHttpErrors
     );
   };
+  const fetchProductData = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/info/product", options).then(handleHttpErrors);
+  };
+  const fetchProductsData = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/info/products", options).then(handleHttpErrors);
+  };
 
   const makeOptions = (method, addToken, body) => {
     var opts = {
@@ -95,6 +103,8 @@ function apiFacade() {
     fetchSwabiData,
     fetchJokesData,
     fetchUserData,
+    fetchProductData, 
+    fetchProductsData, 
   };
 }
 const facade = apiFacade();
