@@ -77,6 +77,11 @@ function apiFacade() {
     return fetch(URL + "/api/info/products", options).then(handleHttpErrors);
   };
 
+  const fetchCategoriesData = (category) => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/info/products/"+ category, options).then(handleHttpErrors);
+  };
+
   const makeOptions = (method, addToken, body) => {
     var opts = {
       method: method,
@@ -104,7 +109,8 @@ function apiFacade() {
     fetchJokesData,
     fetchUserData,
     fetchProductData, 
-    fetchProductsData, 
+    fetchProductsData,
+    fetchCategoriesData, 
   };
 }
 const facade = apiFacade();
