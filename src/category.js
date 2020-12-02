@@ -12,9 +12,22 @@ const Category = () => {
         facade.fetchProductsData().then((data) => setCategoryData(data.products));
     }, []);
 
-    
+    function categoryId(id) {
+        alert(`${id}`);
+      }
+
     return (
         <div>
+<button onClick={() => categoryId('abcat0101000')}>Tv's</button>
+<button onClick={() => categoryId('abcat0102000')}>Blu-ray & DVD Players</button>
+<button onClick={() => categoryId('abcat0106021')}>Gamer Stole</button>
+<button onClick={() => categoryId('abcat0200000')}>Lyd</button>
+<button onClick={() => categoryId('abcat0201000')}>iPod & MP3 Players</button>
+<button onClick={() => categoryId('abcat0204000')}>Headphones</button>
+<button onClick={() => categoryId('abcat0205000')}>Højtaler</button>
+<button onClick={() => categoryId('abcat0300000')}>Bil Electronik & GPS</button>
+<button onClick={() => categoryId('abcat0305000')}>Radar Detectors</button>
+<button onClick={() => categoryId('abcat0301005')}>"Marine GPS & Fishfinders</button>
             {
                 categoryData && categoryData.map((category, i) => {
                     return (
@@ -25,8 +38,8 @@ const Category = () => {
                     <h1>{category.type}</h1>
                     <h1>{category.regularPrice}</h1>
                     <h1>{category.salePrice}</h1>
-                    <h1>{category.url}</h1>
-                    <h1>{category.mobileUrl}</h1>
+                    <a href={category.url}>Køb her</a>
+                    <a href={category.mobileUrl}>Køb her</a>
                     <img src={category.image}></img>
                     <h1>{category.onSale}</h1>
 
@@ -40,73 +53,6 @@ const Category = () => {
     );
 
     };  
-
-
-        // 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "Vis billede 1";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// 3. Add event handler
-button.addEventListener ("click", function() {
-  alert("did something");
-});
-
-
-// 1. Create the button
-var button2 = document.createElement("button");
-button2.innerHTML = "Vis billede 2";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button2);
-
-// 3. Add event handler
-button2.addEventListener ("click", function() {
-  alert("did something");
-});
-
-// 1. Create the button
-var button3 = document.createElement("button");
-button3.innerHTML = "Vis billede 3";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button3);
-
-// 3. Add event handler
-button3.addEventListener ("click", function() {
-  alert("did something");
-});
-
-// 1. Create the button
-var button4 = document.createElement("button");
-button4.innerHTML = "Vis billede 4";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button4);
-
-// 3. Add event handler
-button4.addEventListener ("click", function() {
-  alert("did something");
-});
-
-// 1. Create the button
-var button5 = document.createElement("button");
-button5.innerHTML = "Vis billede 5";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button5);
-
-// 3. Add event handler
-button5.addEventListener ("click", function() {
-  alert("did something");
-});
 
 
 export default Category;

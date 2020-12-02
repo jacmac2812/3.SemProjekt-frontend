@@ -18,8 +18,8 @@ const Product = () => {
       <h3>{productData.type}</h3>
       <h3>{productData.regularPrice}</h3>
       <h3>{productData.salePrice}</h3>
-      <h3>{productData.url}</h3>
-      <h3>{productData.mobileUrl}</h3>
+      <a href={productData.url}>Køb her</a>
+      <a href={productData.mobileUrl}>Køb her</a>
       <img src={productData.image}></img>
       <h3>{productData.shortDesription}</h3>
       <h3>{productData.onSale}</h3>
