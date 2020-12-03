@@ -4,6 +4,7 @@ import Category from "./category";
 import Jokes from "./Jokes";
 import User from "./user";
 import Home from "./home";
+import OnSale from "./onSale";
 import { Link, NavLink, Route, Switch } from "react-router-dom";
 
 export default function Menu() {
@@ -55,7 +56,7 @@ export default function Menu() {
           <Category />
         </Route>
         <Route path="/onsale">
-          <h1>Coming soon</h1>
+          <OnSale />
         </Route>
       </Switch>
     </div>

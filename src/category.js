@@ -8,16 +8,23 @@ const Category = () => {
     function categoryId(id) {
         facade.fetchCategoriesData(id).then((data) => setCategoryData(data.products));
     }
+
     function filterPriceLow(data){
         const filterData = [...data].sort(function(a,b){
             return a.salePrice - b.salePrice;
         })
         setCategoryData(filterData)
     }
+
     function filterPriceHigh(data){
         const filterData = [...data].sort(function(a,b){
             return b.salePrice - a.salePrice;
         })
+        setCategoryData(filterData)
+    }
+
+    function filterOnSale(data) {
+        const filterData = [...data].filter(product => product.onSale === true);
         setCategoryData(filterData)
     }
     //<a href={category.mobileUrl}>Køb her</a>
@@ -36,6 +43,7 @@ const Category = () => {
 
             {categoryData && <button onClick={() => filterPriceLow(categoryData)}>Sort by sale price lowest</button>}
             {categoryData && <button onClick={() => filterPriceHigh(categoryData)}>Sort by sale price highest</button>}
+            {categoryData && <button onClick={() => filterOnSale(categoryData)}>Get products on sale</button>}
 
             {
                 categoryData && categoryData.map((category, i) => {
