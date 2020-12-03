@@ -66,3 +66,21 @@ ul.header {
     border-top: 1px solid rgb(30, 30, 30);
     width: 100%;
   }
+  img{
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+  }
+  table {
+    width: 75%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th{
+width: 200px}

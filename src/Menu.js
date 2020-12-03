@@ -1,5 +1,5 @@
 import Swabi from "./swabi";
-import Product from "./product";
+import ProductSearch from "./ProductSearch";
 import Category from "./category";
 import Jokes from "./Jokes";
 import User from "./user";
@@ -24,10 +24,13 @@ export default function Menu() {
             <NavLink activeClassName="active" to="/swabi">Swabi</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/product">produkt</NavLink>
+            <NavLink activeClassName="active" to="/productSearch">Search on product</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/category">kategori</NavLink>
+            <NavLink activeClassName="active" to="/category">Category</NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="active" to="/onsale">On Sale</NavLink>
           </li>
         </ul>
       </nav>
@@ -45,11 +48,14 @@ export default function Menu() {
         <Route path="/swabi">
           <Swabi />
         </Route>
-        <Route path="/product">
-          <Product />
+        <Route path="/productSearch">
+          <ProductSearch />
         </Route>
         <Route path="/category">
           <Category />
+        </Route>
+        <Route path="/onsale">
+          <h1>Coming soon</h1>
         </Route>
       </Switch>
     </div>

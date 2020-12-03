@@ -68,9 +68,9 @@ function apiFacade() {
       handleHttpErrors
     );
   };
-  const fetchProductData = () => {
+  const fetchProductData = (search) => {
     const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/product", options).then(handleHttpErrors);
+    return fetch(URL + "/api/info/product/" + search, options).then(handleHttpErrors);
   };
   const fetchProductsData = () => {
     const options = makeOptions("GET", true); //True add's the token
