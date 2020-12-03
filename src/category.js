@@ -24,7 +24,7 @@ const Category = () => {
     }
 
     function filterOnSale(data) {
-        const filterData = [...data].filter(product => product.onSale === true);
+        const filterData = [...data].filter(product => product.onSale === 'true');
         setCategoryData(filterData)
     }
     //<a href={category.mobileUrl}>Køb her</a>
