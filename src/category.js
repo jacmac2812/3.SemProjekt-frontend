@@ -1,6 +1,8 @@
 import facade from "./apiFacade";
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import "bootstrap"
+
 
 const Category = () => {
     const [categoryData, setCategoryData] = useState("");
@@ -30,20 +32,22 @@ const Category = () => {
     //<a href={category.mobileUrl}>Køb her</a>
     return (
         <div>
-            <button onClick={() => categoryId('abcat0101000')}>TVs</button>
-            <button onClick={() => categoryId('abcat0102000')}>Blu-ray & DVD Players</button>
-            <button onClick={() => categoryId('abcat0106021')}>Gaming Chairs</button>
-            <button onClick={() => categoryId('abcat0200000')}>Audio</button>
-            <button onClick={() => categoryId('abcat0201000')}>iPod & MP3 Players</button>
-            <button onClick={() => categoryId('abcat0204000')}>Headphones</button>
-            <button onClick={() => categoryId('abcat0205000')}>Speakers</button>
-            <button onClick={() => categoryId('abcat0300000')}>Car Electronics & GPS</button>
-            <button onClick={() => categoryId('abcat0305000')}>Radar Detectors</button>
-            <button onClick={() => categoryId('abcat0301005')}>Marine GPS & Fishfinders</button>
-
-            {categoryData && <button onClick={() => filterPriceLow(categoryData)}>Sort by sale price lowest</button>}
-            {categoryData && <button onClick={() => filterPriceHigh(categoryData)}>Sort by sale price highest</button>}
-            {categoryData && <button onClick={() => filterOnSale(categoryData)}>Get products on sale</button>}
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0101000')}>TVs</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0102000')}>Blu-ray & DVD Players</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0106021')}>Gaming Chairs</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0200000')}>Audio</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0201000')}>iPod & MP3 Players</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0204000')}>Headphones</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0205000')}>Speakers</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0300000')}>Car Electronics & GPS</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0305000')}>Radar Detectors</button>
+            <button className="button buttonCategory" onClick={() => categoryId('abcat0301005')}>Marine GPS & Fishfinders</button>
+            
+            
+            <br></br>
+            {categoryData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceLow(categoryData)}>Sort by sale price lowest</button>}
+            {categoryData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceHigh(categoryData)}>Sort by sale price highest</button>}
+            {categoryData && <button className="button buttonCategory buttonSort" onClick={() => filterOnSale(categoryData)}>Get products on sale</button>}
 
             {
                 categoryData && categoryData.map((category, i) => {

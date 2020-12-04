@@ -1,7 +1,5 @@
-import Swabi from "./swabi";
 import ProductSearch from "./ProductSearch";
 import Category from "./category";
-import Jokes from "./Jokes";
 import User from "./user";
 import Home from "./home";
 import OnSale from "./onSale";
@@ -19,13 +17,7 @@ export default function Menu() {
             <NavLink activeClassName="active" to="/user">User</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/jokes">Jokes</NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="active" to="/swabi">Swabi</NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="active" to="/productSearch">Search on product</NavLink>
+            <NavLink activeClassName="active" to="/productsearch">Search on product</NavLink>
           </li>
           <li>
             <NavLink activeClassName="active" to="/category">Category</NavLink>
@@ -43,13 +35,7 @@ export default function Menu() {
         <Route path="/user">
           <User />
         </Route>
-        <Route path="/jokes">
-          <Jokes />
-        </Route>
-        <Route path="/swabi">
-          <Swabi />
-        </Route>
-        <Route path="/productSearch">
+        <Route path="/productsearch">
           <ProductSearch />
         </Route>
         <Route path="/category">

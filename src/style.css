@@ -57,6 +57,15 @@ ul.header {
     font-size: 15px;
   }
 
+  .buttonCategory {
+    background-color: #1a2fa7;
+    border: 2px solid #000000;
+  }
+
+  .buttonSort {
+    background-color: #1c88b3;
+  }
+
   .lineHorizontal__container {
     align-items: center;
     display: flex;

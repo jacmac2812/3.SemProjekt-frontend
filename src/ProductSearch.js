@@ -42,8 +42,8 @@ const Product = () => {
                 <button type="submit">Search</button>
             </form>
 
-            {productData && <button onClick={() => filterPriceLow(productData)}>Sort by sale price lowest</button>}
-            {productData && <button onClick={() => filterPriceHigh(productData)}>Sort by sale price highest</button>}
+            {productData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceLow(productData)}>Sort by sale price lowest</button>}
+            {productData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceHigh(productData)}>Sort by sale price highest</button>}
 
             {
                 productData && productData.map((product, i) => {

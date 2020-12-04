@@ -30,8 +30,8 @@ const OnSale = () => {
 
     return (
         <div>
-            {onSaleData && <button onClick={() => filterPriceLow(onSaleData)}>Sort by sale price lowest</button>}
-            {onSaleData && <button onClick={() => filterPriceHigh(onSaleData)}>Sort by sale price highest</button>}
+            {onSaleData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceLow(onSaleData)}>Sort by sale price lowest</button>}
+            {onSaleData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceHigh(onSaleData)}>Sort by sale price highest</button>}
             {
                 onSaleData && onSaleData.map((product, i) => {
                     return (
