@@ -37,6 +37,22 @@ const getRole = () => {
   return localStorage.getItem("role");
 };
 
+const setUser = (name) => {
+  localStorage.setItem("name", name.username);
+};
+
+const getUser = () => {
+  return localStorage.getItem("name");
+};
+
+const parseUser = (token) => {
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch (e) {
+    return null;
+  }
+};
+
 function apiFacade() {
   /* Insert utility-methods from a latter step (d) here (REMEMBER to uncomment in the returned object when you do)*/
 
@@ -50,6 +66,7 @@ function apiFacade() {
       .then((res) => {
         setToken(res.token);
         setRole(parseRole(res.token));
+        setUser(parseUser(res.token));
       });
   };
 
@@ -72,6 +89,16 @@ function apiFacade() {
   const fetchCategoriesData = (category) => {
     const options = makeOptions("GET", true); //True add's the token
     return fetch(URL + "/api/products/categories/"+ category, options).then(handleHttpErrors);
+  };
+
+  const fetchAddUser = (user) => {
+    const options = makeOptions("POST", true, user); //True add's the token
+    return fetch(URL + "/api/users", options).then(handleHttpErrors);
+  };
+  const fetchEditUser = (user) => {
+    const options = makeOptions("PUT", true, user); //True add's the token
+    console.log(getUser())
+    return fetch(URL + "/api/users/"+  getUser(), options).then(handleHttpErrors);
   };
 
   const makeOptions = (method, addToken, body) => {
@@ -101,6 +128,8 @@ function apiFacade() {
     fetchProductData, 
     fetchProductsOnSale,
     fetchCategoriesData, 
+    fetchAddUser,
+    fetchEditUser,
   };
 }
 const facade = apiFacade();

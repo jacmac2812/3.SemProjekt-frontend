@@ -3,6 +3,8 @@ import Category from "./category";
 import User from "./user";
 import Home from "./home";
 import OnSale from "./onSale";
+import Users from "./Users";
+import EditUser from "./editUser";
 import { Link, NavLink, Route, Switch } from "react-router-dom";
 
 export default function Menu() {
@@ -25,6 +27,12 @@ export default function Menu() {
           <li>
             <NavLink activeClassName="active" to="/onsale">On Sale</NavLink>
           </li>
+          <li>
+            <NavLink activeClassName="active" to="/users">Users</NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="active" to="/edituser">Edit User</NavLink>
+          </li>
         </ul>
       </nav>
 
@@ -43,6 +51,12 @@ export default function Menu() {
         </Route>
         <Route path="/onsale">
           <OnSale />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/edituser">
+          <EditUser />
         </Route>
       </Switch>
     </div>
