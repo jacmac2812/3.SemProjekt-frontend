@@ -93,3 +93,17 @@ th, td {
 }
 th{
 width: 200px}
+
+#table-user {
+  width: 100%;
+  text-align: center; 
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 10px;
+}
+th{
+width: 200px}

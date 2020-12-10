@@ -9,14 +9,14 @@ const OnSale = () => {
         facade.fetchProductsOnSale().then((data) => setOnSaleData(data.products));
     }, []);
 
-    function filterPriceLow(data){
-        const filterData = [...data].sort(function(a,b){
+    function filterPriceLow(data) {
+        const filterData = [...data].sort(function (a, b) {
             return a.salePrice - b.salePrice;
         })
         setOnSaleData(filterData)
     }
-    function filterPriceHigh(data){
-        const filterData = [...data].sort(function(a,b){
+    function filterPriceHigh(data) {
+        const filterData = [...data].sort(function (a, b) {
             return b.salePrice - a.salePrice;
         })
         setOnSaleData(filterData)
@@ -27,7 +27,9 @@ const OnSale = () => {
         const rounded = saved.toFixed(2);
         return rounded;
     }
-
+    function handleAddToFavorit(data) {
+        facade.fetchAddFavorit(data);
+    }
     return (
         <div>
             {onSaleData && <button className="button buttonCategory buttonSort" onClick={() => filterPriceLow(onSaleData)}>Sort by sale price lowest</button>}
@@ -38,7 +40,7 @@ const OnSale = () => {
                         <div key={i}>
                             <table>
                                 <tr>
-                                    <th rowspan="7"><img src={product.image}></img></th>
+                                    <th rowspan="8"><img src={product.image}></img></th>
                                     <td><b>{product.name}</b></td>
                                 </tr>
                                 <tr>
@@ -58,6 +60,9 @@ const OnSale = () => {
                                 </tr>
                                 <tr>
                                     <td><a href={product.url}><b>Buy Here</b></a></td>
+                                </tr>
+                                <tr>
+                                    <td>{onSaleData && <button className="button buttonCategory buttonSort" onClick={() => handleAddToFavorit(product)}>Add to favorites</button>}</td>
                                 </tr>
                             </table>
                         </div>

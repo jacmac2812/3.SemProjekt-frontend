@@ -29,6 +29,10 @@ const Category = () => {
         const filterData = [...data].filter(product => product.onSale === 'true');
         setCategoryData(filterData)
     }
+
+    function handleAddToFavorit (data){
+        facade.fetchAddFavorit(data);
+    }
     //<a href={category.mobileUrl}>Køb her</a>
     return (
         <div>
@@ -55,7 +59,7 @@ const Category = () => {
                         <div key={i}>
                                 <table>
                                     <tr>
-                                        <th rowspan="7"><img src={category.image}></img></th>
+                                        <th rowspan="8"><img src={category.image}></img></th>
                                         <td><b>{category.name}</b></td>
                                     </tr>
                                     <tr>
@@ -75,6 +79,9 @@ const Category = () => {
                                     </tr>
                                     <tr>
                                         <td>{category.onSale}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{categoryData && <button className="button buttonCategory buttonSort" onClick={() => handleAddToFavorit(category)}>Add to favorites</button>}</td>
                                     </tr>
                                 </table>
                         </div>

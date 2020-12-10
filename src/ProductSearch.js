@@ -8,7 +8,7 @@ const Product = () => {
     const [productSearch, setProductSearch] = useState("");
 
     //useEffect(() => {
-       // facade.fetchProductData().then((data) => setProductData(data));
+    // facade.fetchProductData().then((data) => setProductData(data));
     //}, []);
 
     function filterPriceLow(data) {
@@ -33,6 +33,9 @@ const Product = () => {
         event.preventDefault();
         facade.fetchProductData(productSearch).then((data) => setProductData(data.products));
     }
+    function handleAddToFavorit(data) {
+        facade.fetchAddFavorit(data);
+    }
     //<a href={productData.mobileUrl}>Køb her</a>  
 
     return (
@@ -51,7 +54,7 @@ const Product = () => {
                         <div key={i}>
                             <table>
                                 <tr>
-                                    <th rowspan="7"><img src={product.image}></img></th>
+                                    <th rowspan="8"><img src={product.image}></img></th>
                                     <td><b>{product.name}</b></td>
                                 </tr>
                                 <tr>
@@ -71,6 +74,9 @@ const Product = () => {
                                 </tr>
                                 <tr>
                                     <td>{product.onSale}</td>
+                                </tr>
+                                <tr>
+                                    <td>{productData && <button className="button buttonCategory buttonSort" onClick={() => handleAddToFavorit(product)}>Add to favorites</button>}</td>
                                 </tr>
                             </table>
                         </div>

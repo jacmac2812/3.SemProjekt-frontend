@@ -98,7 +98,27 @@ function apiFacade() {
   const fetchEditUser = (user) => {
     const options = makeOptions("PUT", true, user); //True add's the token
     console.log(getUser())
-    return fetch(URL + "/api/users/"+  getUser(), options).then(handleHttpErrors);
+    return fetch(URL + "/api/users/" +  getUser(), options).then(handleHttpErrors);
+  };
+  const fetchGetallUsers = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+  };
+  const fetchDeleteUser = (user) => {
+    const options = makeOptions("DELETE", true, user); //True add's the token
+    return fetch(URL + "/api/users/" + user, options).then(handleHttpErrors);
+  };
+  const fetchGetallFavorites = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/products/favorites/" + getUser(), options).then(handleHttpErrors);
+  };
+  const fetchDeleteFavorit = (sku) => {
+    const options = makeOptions("DELETE", true); //True add's the token
+    return fetch(URL + "/api/products/favorites/"+ sku +"/users/" + getUser(), options).then(handleHttpErrors);
+  };
+  const fetchAddFavorit = (product) => {
+    const options = makeOptions("POST", true, product); //True add's the token
+    return fetch(URL + "/api/products/favorites/" + getUser(), options).then(handleHttpErrors);
   };
 
   const makeOptions = (method, addToken, body) => {
@@ -130,6 +150,11 @@ function apiFacade() {
     fetchCategoriesData, 
     fetchAddUser,
     fetchEditUser,
+    fetchGetallUsers,
+    fetchDeleteUser,
+    fetchGetallFavorites,
+    fetchDeleteFavorit,
+    fetchAddFavorit,
   };
 }
 const facade = apiFacade();
