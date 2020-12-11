@@ -1,49 +1,64 @@
 import facade from "./apiFacade";
 import React, { useState, useEffect } from "react";
+import "./style.css";
+import "bootstrap"
+
+const EditUser = () => {
+  const initialValue = {
+    password: "",
+    email: "",
+    phoneNumber: ""
+  };
+
+  const [editUser, setEditUser] = useState(initialValue);
+
+  const handleChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setEditUser({ ...editUser, [name]: value });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    facade.fetchEditUser(editUser);
+    setEditUser(initialValue);
+  };
 
 
-const Product = () => {
-    const [productData, setProductData] = useState("");
+  return (
+    <>
+    <h3>You are editing: {facade.getUser()}</h3>
+    <form onSubmit={handleSubmit}>
 
-    const [productSearch, setProductSearch] = useState("");
+      <input
+        name="password"
+        value={editUser.password}
+        onChange={handleChange}
+        placeholder="Edit password"
+      />
+      <br />
+      <input
+        name="email"
+        value={editUser.email}
+        onChange={handleChange}
+        placeholder="Edit email"
+      />
+      <br />
+      <input
+        name="phoneNumber"
+        value={editUser.phoneNumber}
+        onChange={handleChange}
+        placeholder="Edit phonenumber"
+      />
+      <br />
 
-    //useEffect(() => {
-       // facade.fetchProductData().then((data) => setProductData(data));
-    //}, []);
+      <button className="button buttonCategory buttonSort" type="submit" value="Submit">Edit</button>
 
+    </form>
+    </>
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        let password = document.getElementById("password").value;
-        let email = document.getElementById("email").value;
-        let phoneNumber = document.getElementById("phonenumber").value;
-        const edituser = { 
-            password,
-            email,
-            phoneNumber
-        }
-        console.log(edituser)
-        facade.fetchEditUser(edituser);
-    }
-    //<a href={productData.mobileUrl}>Køb her</a>  
-
-    return (
-<form onSubmit={handleSubmit}>
-  <label>
-    Password:
-    <input type="text" name="password" id="password" />
-  </label><br></br>
-  <label>
-    Email:
-    <input type="text" name="email" id="email" />
-  </label><br></br>
-  <label>
-    Phonenumber:
-    <input type="text" name="phonenumber" id="phonenumber" />
-  </label><br></br>
-  <button type="submit">Edit user</button>
-</form>
-    );
+  );
 };
 
-export default Product;
+export default EditUser;

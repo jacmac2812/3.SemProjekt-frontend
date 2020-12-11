@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import facade from "./apiFacade";
 import Menu from "./Menu";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, useHistory, } from "react-router-dom";
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -40,12 +40,16 @@ function LoggedIn() {
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  let history = useHistory();
+
   const logout = () => {
     facade.logout();
     setLoggedIn(false);
+    history.push("/");
   };
   const login = (user, pass) => {
     facade.login(user, pass).then((res) => setLoggedIn(true));
+    history.push("/user");
   };
 
   return (

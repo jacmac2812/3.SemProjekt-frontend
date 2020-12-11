@@ -105,5 +105,8 @@ table, th, td {
 th, td {
   padding: 10px;
 }
+td {
+  width: 200px;
+}
 th{
 width: 200px}

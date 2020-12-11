@@ -1,46 +1,73 @@
 import facade from "./apiFacade";
 import React, { useState, useEffect } from "react";
-
+import "./style.css";
+import "bootstrap"
 
 const CreateUser = () => {
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        let name = document.getElementById("name").value;
-        let password = document.getElementById("password").value;
-        let email = document.getElementById("email").value;
-        let phoneNumber = document.getElementById("phonenumber").value;
-        const newUser = { 
-            name, 
-            password,
-            email,
-            phoneNumber
-        }
-        facade.fetchAddUser(newUser);
-    }
+  const initialValue = {
+    name: "",
+    password: "",
+    email: "",
+    phoneNumber: ""
+  };
+
+  const [newUser, setNewUser] = useState(initialValue);
+
+  const handleChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setNewUser({ ...newUser, [name]: value });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    facade.fetchAddUser(newUser);
+    setNewUser(initialValue);
+  };
 
 
-    return (
-<form onSubmit={handleSubmit}>
-  <label>
-    Name:
-    <input type="text" name="name" id="name" />
-  </label><br></br>
-  <label>
-    Password:
-    <input type="text" name="password" id="password" />
-  </label><br></br>
-  <label>
-    Email:
-    <input type="text" name="email" id="email" />
-  </label><br></br>
-  <label>
-    Phonenumber:
-    <input type="text" name="phonenumber" id="phonenumber" />
-  </label><br></br>
-  <button type="submit">Create user</button>
-</form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+
+      <input
+        name="name"
+        value={newUser.name}
+        onChange={handleChange}
+        placeholder="Add name"
+      />
+      <br />
+      <input
+        name="password"
+        value={newUser.password}
+        onChange={handleChange}
+        placeholder="Add password"
+      />
+      <br />
+      <input
+        name="email"
+        value={newUser.email}
+        onChange={handleChange}
+        placeholder="Add email"
+      />
+      <br />
+      <input
+        name="phoneNumber"
+        value={newUser.phoneNumber}
+        onChange={handleChange}
+        placeholder="Add phonenumber"
+      />
+      <br />
+
+      <button className="button buttonCategory buttonSort" type="submit" value="Submit">Add</button>
+
+    </form>
+
+  );
 };
 
 export default CreateUser;
+
+
+
