@@ -9,7 +9,7 @@ import Users from "./Users";
 import Favorit from "./Favorit";
 import facade from "./apiFacade";
 import React, { useState, useEffect } from "react";
-import { Link, NavLink, Route, Switch } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 
 export default function Menu() {
   const role = facade.getRole();
@@ -32,10 +32,10 @@ export default function Menu() {
       <nav className="navbar navbar-light">
         <ul className="header">
           <li>
-            <NavLink exact activeClassName="active" to="/">Welcome</NavLink>
+            <NavLink exact activeClassName="active" to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/user">User</NavLink>
+            <NavLink activeClassName="active" to="/user">Welcome</NavLink>
           </li>
           <li>
             <NavLink activeClassName="active" to="/productsearch">Search on product</NavLink>

@@ -10,7 +10,7 @@ const User = () => {
 
   return (
     <div>
-      <h2>Data Received from server</h2>
+      <h2>Welcome</h2>
       <h3>{dataFromServer}</h3>
     </div>
   );

@@ -33,7 +33,7 @@ const Category = () => {
     function handleAddToFavorit (data){
         facade.fetchAddFavorit(data);
     }
-    //<a href={category.mobileUrl}>Køb her</a>
+    
     return (
         <div>
             <button className="button buttonCategory" onClick={() => categoryId('abcat0101000')}>TVs</button>

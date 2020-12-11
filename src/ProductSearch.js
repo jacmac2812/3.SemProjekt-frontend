@@ -1,15 +1,11 @@
 import facade from "./apiFacade";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 
 const Product = () => {
     const [productData, setProductData] = useState("");
 
     const [productSearch, setProductSearch] = useState("");
-
-    //useEffect(() => {
-    // facade.fetchProductData().then((data) => setProductData(data));
-    //}, []);
 
     function filterPriceLow(data) {
         const filterData = [...data].sort(function (a, b) {
@@ -36,8 +32,7 @@ const Product = () => {
     function handleAddToFavorit(data) {
         facade.fetchAddFavorit(data);
     }
-    //<a href={productData.mobileUrl}>Køb her</a>  
-
+    
     return (
         <div>
             <form onSubmit={handleSubmit}>

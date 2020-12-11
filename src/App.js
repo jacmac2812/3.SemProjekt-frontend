@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import facade from "./apiFacade";
 import Menu from "./Menu";
-import { Link, Route, Switch, useHistory, } from "react-router-dom";
+import { useHistory, } from "react-router-dom";
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
