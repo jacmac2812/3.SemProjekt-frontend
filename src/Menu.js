@@ -13,13 +13,20 @@ import { Link, NavLink, Route, Switch } from "react-router-dom";
 
 export default function Menu() {
   const role = facade.getRole();
-  const [isAdmin, setIsAdmin] = useState();
+  const [isAdmin, setIsAdmin] = useState(role ? false : true);
 
-  if(role === "admin"){
-    setIsAdmin(true);
-  } else {
-    setIsAdmin(false);
+  const checkRole = (role) => {
+    if (role === "admin") {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
   }
+
+  useEffect(() => {
+    checkRole(role);
+  }, []);
+
   return (
     <div>
       <nav className="navbar navbar-light">
@@ -46,11 +53,11 @@ export default function Menu() {
             <NavLink activeClassName="active" to="/edituser">Edit User</NavLink>
           </li>
           {
-          isAdmin && (
-          <li>
-            <NavLink activeClassName="active" to="/users">See all users</NavLink>
-          </li>
-          )}
+            isAdmin && (
+              <li>
+                <NavLink activeClassName="active" to="/users">See all users</NavLink>
+              </li>
+            )}
           <li>
             <NavLink activeClassName="active" to="/favorit">Favorit list</NavLink>
           </li>

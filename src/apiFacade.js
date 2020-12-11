@@ -155,6 +155,7 @@ function apiFacade() {
     fetchGetallFavorites,
     fetchDeleteFavorit,
     fetchAddFavorit,
+    getRole,
   };
 }
 const facade = apiFacade();
